@@ -1,7 +1,17 @@
 import React from 'react';
 import ArrowUpGreen from '../icons/ArrowUpGreen';
+import HeartWhite from '../icons/HeartWhite';
 
-export default function MarketDetails({ cartitems, setCartitems }) {
+export default function MarketDetails({
+  cartitems,
+  setCartitems,
+  name,
+  percent,
+  value,
+  number,
+  dec,
+  SetCurrentMarket,
+}) {
   const controlCartItem = (action) => {
     if (action === 'INC') {
       setCartitems(cartitems + 1);
@@ -16,6 +26,10 @@ export default function MarketDetails({ cartitems, setCartitems }) {
       {/* upper section */}
       <div className="marketdetails_upper">
         <span
+          onClick={() => {
+            SetCurrentMarket(null);
+            setCartitems(1);
+          }}
           style={{
             color: '#255380',
             textDecoration: 'underline',
@@ -25,36 +39,31 @@ export default function MarketDetails({ cartitems, setCartitems }) {
           Market
         </span>
         <span style={{ color: '#999999' }}> &gt; Real Estate &gt; </span>
-        <span style={{ color: '#999999' }}>Ibeju Estate</span>
+        <span style={{ color: '#999999' }}>{name}</span>
       </div>
 
       {/* middle */}
-      <p className="name">Ibeju Estate</p>
+      <p className="name">{name}</p>
 
       {/* lower */}
       <div className="marketdetails_lower">
         <div className="details">
           <img src="./home1.jpg"></img>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare
-            nec justo a efficitur. Aliquam et magna ornare ipsum suscipit congue
-            in sed lacus. Maecenas rhoncus placerat hendrerit. Nunc vel enim
-            lorem. Curabitur mollis malesuada ullamcorper. Nam volutpat, tortor
-            id tristique ullamcorper, erat purus ultricies turpis, quis accumsan
-            ligula quam non mi. Morbi sed gravida ligula.{' '}
-          </p>
+          <p>{dec}</p>
         </div>
         <div className="add_to_cart">
           {/* upper */}
           <div className="upper">
-            <p>15%</p>
+            <p>{percent}%</p>
             <div className="inner">
               <ArrowUpGreen height={11} width={11} />
               <span>ROI</span>
             </div>
           </div>
           {/* middle */}
-          <p>N8,000/unit . 53</p>
+          <p>
+            N{value}/unit . {number}
+          </p>
 
           {/* increment */}
           <div className="increment">
@@ -68,6 +77,10 @@ export default function MarketDetails({ cartitems, setCartitems }) {
 
           {/* button */}
           <button>Add to Cart</button>
+
+          <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
+            <HeartWhite height={15} width={15} />
+          </div>
         </div>
       </div>
     </div>

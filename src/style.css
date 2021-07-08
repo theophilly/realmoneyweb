@@ -623,6 +623,7 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 10px;
+  cursor: pointer;
 }
 
 .marketslide img {
@@ -633,6 +634,7 @@
 
 .marketdetails {
   margin-top: 30px;
+  position: relative;
 }
 
 .marketdetails_upper span {
@@ -677,7 +679,7 @@
 
 .marketdetails_lower .add_to_cart {
   height: 164px;
-  width: 16vw;
+  width: 14vw;
   border-radius: 18px;
   background: #255380;
   color: white;

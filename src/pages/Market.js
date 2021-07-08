@@ -17,6 +17,7 @@ import MarketDetails from '../components/MarketDetails';
 export default function Market() {
   const car = useRef(null);
   const [cartitems, setCartitems] = useState(1);
+  const [currentMarket, SetCurrentMarket] = useState(null);
   return (
     <div className="market">
       {/* first section */}
@@ -50,43 +51,54 @@ export default function Market() {
           <NavbarIcons />
         </div>
       </div>
-      {/* second section */}
-      {/* <div className="market_secondsection">
-        <p>Real Estate</p>
-        <p>Agro</p>
-        <div className="market_secondsection_input">
-          <input placeholder="search market "></input>
-        </div>
-      </div>
 
-       carousel 
-      <div className="market_carousel">
-        <div onClick={() => car.current.prev()} className="previous">
-          <PrevIcon height={11} width={11} />
-        </div>
-        <div className="slider">
-          <OwlCarousel
-            ref={car}
-            dots={false}
-            nav={false}
-            items={5}
-            className="owl-theme"
-            loop
-            margin={10}
-          >
-            {newMarketData.map((item, index) => (
-              <div class="item">
-                <MarketSlide item={item} />
-              </div>
-            ))}
-          </OwlCarousel>
-        </div>
-        <div onClick={() => car.current.next()} className="next">
-          <NextIcon height={11} width={11} />
-        </div>
-      </div> */}
-
-      <MarketDetails cartitems={cartitems} setCartitems={setCartitems} />
+      {currentMarket === null ? (
+        <>
+          {' '}
+          <div className="market_secondsection">
+            <p>Real Estate</p>
+            <p>Agro</p>
+            <div className="market_secondsection_input">
+              <input placeholder="search market "></input>
+            </div>
+          </div>
+          <div className="market_carousel">
+            <div onClick={() => car.current.prev()} className="previous">
+              <PrevIcon height={11} width={11} />
+            </div>
+            <div className="slider">
+              <OwlCarousel
+                ref={car}
+                dots={false}
+                nav={false}
+                items={5}
+                className="owl-theme"
+                loop
+                margin={10}
+              >
+                {newMarketData.map((item, index) => (
+                  <div
+                    class="item"
+                    onClick={() => SetCurrentMarket({ ...item })}
+                  >
+                    <MarketSlide item={item} />
+                  </div>
+                ))}
+              </OwlCarousel>
+            </div>
+            <div onClick={() => car.current.next()} className="next">
+              <NextIcon height={11} width={11} />
+            </div>
+          </div>
+        </>
+      ) : (
+        <MarketDetails
+          {...currentMarket}
+          cartitems={cartitems}
+          setCartitems={setCartitems}
+          SetCurrentMarket={SetCurrentMarket}
+        />
+      )}
     </div>
   );
 }

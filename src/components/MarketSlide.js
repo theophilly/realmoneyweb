@@ -6,7 +6,7 @@ export default function MarketSlide({ item }) {
 
   return (
     <div className="marketslide">
-      <img src={image} />
+      <img src={image[1]} />
 
       <MarketComponent2
         image={image}

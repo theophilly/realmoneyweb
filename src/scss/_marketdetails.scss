@@ -1,5 +1,7 @@
 .marketdetails {
   margin-top: 30px;
+  position: relative;
+
   &_upper {
     span {
       font-size: 0.9rem;
@@ -37,7 +39,7 @@
     }
     .add_to_cart {
       height: 164px;
-      width: 16vw;
+      width: 14vw;
       border-radius: 18px;
       background: #255380;
       color: white;
