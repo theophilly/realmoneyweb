@@ -77,9 +77,8 @@ export default function MarketDetails({
 
           {/* button */}
           <button>Add to Cart</button>
-
-          <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
-            <HeartWhite height={15} width={15} />
+          <div className="heart">
+            <HeartWhite height={18} width={18} />
           </div>
         </div>
       </div>

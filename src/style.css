@@ -634,7 +634,6 @@
 
 .marketdetails {
   margin-top: 30px;
-  position: relative;
 }
 
 .marketdetails_upper span {
@@ -683,6 +682,7 @@
   border-radius: 18px;
   background: #255380;
   color: white;
+  position: relative;
   padding: 20px;
   font-family: 'Mulish', sans-serif;
 }
@@ -761,6 +761,12 @@
   border-radius: 20px;
   border: none;
   background: #66ffcc;
+}
+
+.marketdetails_lower .add_to_cart .heart {
+  top: 20px;
+  right: 20px;
+  position: absolute;
 }
 
 * {
