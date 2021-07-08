@@ -1,0 +1,47 @@
+export default [
+  {
+    image: './home1.jfif',
+    name: 'Ibeju Farm',
+    percent: 16,
+    value: 7000,
+    type: 'fixed',
+    number: 23,
+  },
+  {
+    image: './home1.jfif',
+    name: 'Jerry Farms',
+    percent: 10,
+    value: 12000,
+    type: 'fixed',
+    number: 219,
+  },
+  {
+    image: './home1.jfif',
+    name: 'Eclairs Poultry',
+    percent: 14,
+    value: 2000,
+    type: 'realestate',
+    number: 620,
+  },
+  {
+    image: './home1.jfif',
+    name: 'Total',
+    percent: 12,
+    value: 7000,
+    type: 'realestate',
+  },
+  {
+    image: './home1.jfif',
+    name: 'Tech Cabal',
+    percent: 12,
+    value: 11000,
+    type: 'farm',
+  },
+  {
+    image: './home1.jfif',
+    name: 'Slot',
+    percent: 12,
+    value: 5000,
+    type: 'farm',
+  },
+];

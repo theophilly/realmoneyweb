@@ -1,0 +1,46 @@
+.quickinvest {
+  height: auto;
+  background: #e6e6e6;
+  max-width: max-content;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 35px 20px;
+  color: #255380;
+  border-radius: 17px;
+  &_upper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    hr {
+      width: 130px;
+      height: 1px;
+      border: none;
+      background: #66ffcc;
+    }
+  }
+
+  &_input {
+    position: relative;
+    margin-top: 20px;
+
+    input {
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 20px;
+      width: 250px;
+    }
+  }
+  &_marketlist {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+
+    gap: 15px;
+    justify-content: space-evenly;
+
+    margin-top: 20px;
+  }
+}

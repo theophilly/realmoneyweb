@@ -1,0 +1,24 @@
+.marketcomponent2 {
+  font-size: 0.8rem;
+  color: white;
+  background: #255380;
+  width: 130px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+
+  &_inner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0px 0px;
+
+    > p:first-child {
+      font-size: 1.8rem;
+    }
+  }
+  > p:last-child {
+    font-size: 0.7rem;
+  }
+}
