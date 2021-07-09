@@ -54,7 +54,6 @@ export default function Market() {
 
       {currentMarket === null ? (
         <>
-          {' '}
           <div className="market_secondsection">
             <p>Real Estate</p>
             <p>Agro</p>
@@ -79,7 +78,9 @@ export default function Market() {
                 {newMarketData.map((item, index) => (
                   <div
                     class="item"
-                    onClick={() => SetCurrentMarket({ ...item })}
+                    onClick={() =>
+                      SetCurrentMarket({ ...item, iterator: index })
+                    }
                   >
                     <MarketSlide item={item} />
                   </div>

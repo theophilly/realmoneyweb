@@ -387,7 +387,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 35px 20px;
+  padding: 50px 20px;
   color: #255380;
   border-radius: 17px;
 }
@@ -428,7 +428,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 250px;
+  width: 255px;
   gap: 15px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
@@ -756,17 +756,97 @@
   border-bottom-right-radius: 15px;
 }
 
-.marketdetails_lower .add_to_cart button {
+.marketdetails_lower .add_to_cart .add {
   padding: 8px 40px;
   border-radius: 20px;
   border: none;
   background: #66ffcc;
 }
 
+.marketdetails_lower .add_to_cart .remove {
+  padding: 8px 30px;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  color: #255380;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .marketdetails_lower .add_to_cart .heart {
   top: 20px;
   right: 20px;
   position: absolute;
+}
+
+.portfolio {
+  padding-left: 50px;
+  padding-right: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.portfolio .left {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+
+.portfolio .right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.loans {
+  padding-left: 50px;
+}
+
+.loans_firstsection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 100px;
+}
+
+.loans_firstsection h2 {
+  font-weight: normal;
+  color: #255380;
+}
+
+.loans_firstsection .tabs {
+  background: #255380;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px;
+  border-radius: 25px;
+}
+
+.loans_firstsection .tabs span {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.loans_firstsection .tabs span.active {
+  background: #66ffcc;
+  color: #255380;
 }
 
 * {

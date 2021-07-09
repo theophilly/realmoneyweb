@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ArrowUpGreen from '../icons/ArrowUpGreen';
 import HeartWhite from '../icons/HeartWhite';
 
@@ -11,7 +12,13 @@ export default function MarketDetails({
   number,
   dec,
   SetCurrentMarket,
+  iterator,
+  image,
 }) {
+  const { products, totalPrice, totalQuantities } = useSelector(
+    (state) => state.cartReducer
+  );
+  const dispatch = useDispatch();
   const controlCartItem = (action) => {
     if (action === 'INC') {
       setCartitems(cartitems + 1);
@@ -76,7 +83,39 @@ export default function MarketDetails({
           </div>
 
           {/* button */}
-          <button>Add to Cart</button>
+          {products.some((item) => item.name === name) ? (
+            <button
+              onClick={() =>
+                dispatch({
+                  type: 'REMOVE',
+                  payload: iterator,
+                })
+              }
+              className="remove"
+            >
+              Remove from Cart
+            </button>
+          ) : (
+            <button
+              onClick={() =>
+                dispatch({
+                  type: 'ADD_TO_CART',
+                  payload: {
+                    product: {
+                      name: name,
+                      image: image,
+                      value: value,
+                      id: iterator,
+                    },
+                  },
+                })
+              }
+              className="add"
+            >
+              Add to Cart
+            </button>
+          )}
+
           <div className="heart">
             <HeartWhite height={18} width={18} />
           </div>

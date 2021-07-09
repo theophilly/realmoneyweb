@@ -100,11 +100,19 @@
         }
       }
 
-      button {
+      .add {
         padding: 8px 40px;
         border-radius: 20px;
         border: none;
         background: #66ffcc;
+      }
+      .remove {
+        padding: 8px 30px;
+        border-radius: 20px;
+        border: none;
+        background: white;
+        color: #255380;
+        width: max-content;
       }
       .heart {
         top: 20px;

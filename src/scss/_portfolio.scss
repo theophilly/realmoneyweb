@@ -1,0 +1,16 @@
+.portfolio {
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  width: 100%;
+
+  .left {
+    max-width: max-content;
+  }
+  .right {
+    flex: 1;
+    // width: 100%;
+    //display: flex;
+    // justify-content: flex-end;
+  }
+}
