@@ -1,36 +1,97 @@
 .loans {
-  padding-left: 50px;
+  padding-left: 100px;
+  padding-right: 50px;
+  width: 100%;
 
   &_firstsection {
+    //border: 1px solid red;
+    // height: 6rem;
     display: flex;
-    margin-top: 50px;
-    align-items: center;
-    gap: 100px;
+    //align-items: center;
 
-    h2 {
-      font-weight: normal;
-      color: #255380;
+    .inner {
+      display: flex;
+      gap: 100px;
+      align-self: flex-end;
+      margin-top: 80px;
+
+      h1 {
+        font-weight: normal;
+        color: #255380;
+        font-size: 1.5rem;
+      }
+
+      .tabs {
+        background: #255380;
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        border-radius: 25px;
+
+        span {
+          width: max-content;
+          padding: 7px 20px;
+          color: white;
+          border-radius: 25px;
+          font-size: 0.9rem;
+          cursor: pointer;
+        }
+        span.active {
+          background: #66ffcc;
+          color: #255380;
+        }
+      }
     }
 
-    .tabs {
-      background: #255380;
+    .navicons {
+      flex: 1;
       display: flex;
-      align-items: center;
-      padding: 3px;
-      border-radius: 25px;
+      justify-content: flex-end;
+      justify-self: flex-start;
+    }
+  }
+  &_lower {
+    display: flex;
 
-      span {
-        width: max-content;
-        padding: 8px 20px;
-        color: white;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        cursor: pointer;
+    .left {
+      flex: 0.4;
+      padding-right: 70px;
+      margin-top: 4rem;
+
+      .bottom {
+        display: flex;
+        gap: 25px;
+        margin-top: 70px;
+
+        .addC {
+          padding: 7px 23px;
+          background: #255380;
+          color: #66ffcc;
+          border-radius: 20px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          height: max-content;
+        }
+        .request {
+          padding: 7px 23px;
+          background: #999999;
+          color: #cccccc;
+          border-radius: 20px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          height: max-content;
+        }
+
+        .inner {
+        }
       }
-      span.active {
-        background: #66ffcc;
-        color: #255380;
-      }
+    }
+    .right {
+      flex: 0.6;
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

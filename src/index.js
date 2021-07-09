@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import App from './App';
 import './style.css';
@@ -10,9 +11,9 @@ window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
+    <ChakraProvider>
       <App />
-    </React.StrictMode>
+    </ChakraProvider>
   </Provider>,
   document.getElementById('root')
 );

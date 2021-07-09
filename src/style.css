@@ -108,7 +108,7 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin: 30px 0;
+  margin: 40px 0;
 }
 
 .home_left_boxes {
@@ -119,14 +119,14 @@
 }
 
 .home_left_boxes_white {
-  height: 125px;
-  width: 250px;
+  height: 170px;
+  width: 250px !important;
   box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
   -webkit-box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
   -moz-box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
   padding: 20px;
-  border-radius: 15px;
-  margin-right: 90px;
+  border-radius: 15px !important;
+  margin-right: 90px !important;
 }
 
 .home_left_boxes_white_first {
@@ -145,8 +145,8 @@
   display: flex;
   color: white;
   background: #808080;
-  padding: 5px 15px;
-  font-size: 0.7rem;
+  padding: 5px 15px !important;
+  font-size: 0.7rem !important;
   border-radius: 10px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -165,37 +165,45 @@
       -ms-flex-align: baseline;
           align-items: baseline;
   color: #255380;
-  font-size: 2rem;
-  margin: 15px 0;
+  font-size: 2rem !important;
+  margin: 15px 0 !important;
   gap: 6px;
 }
 
 .home_left_boxes_white_second span {
-  font-size: 1rem;
+  font-size: 1rem !important;
   color: #b3b3b3;
 }
 
 .home_left_boxes_white_third {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 0.9rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  font-size: 0.9rem !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
   gap: 10px;
 }
 
 .home_left_boxes_white_third_inner {
-  padding: 3px 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px 7px !important;
   background: #66ffcc;
-  border-radius: 15px;
+  font-size: 0.8rem;
+  gap: 2;
+  border-radius: 15px !important;
 }
 
 .home_left_boxes_blue {
-  height: 125px;
-  width: 100px;
-  padding: 20px;
+  height: 168px;
+  width: 120px;
+  padding-top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -342,11 +350,11 @@
 }
 
 .marketcomponent2 {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: white;
   background: #255380;
-  width: 130px;
-  padding: 10px 10px;
+  width: 160px !important;
+  padding: 10px 10px !important;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
@@ -365,6 +373,7 @@
 
 .marketcomponent2_inner > p:first-child {
   font-size: 1.8rem;
+  margin: 0px;
 }
 
 .marketcomponent2 > p:last-child {
@@ -387,7 +396,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 50px 20px;
+  padding: 30px 20px;
   color: #255380;
   border-radius: 17px;
 }
@@ -415,7 +424,7 @@
 }
 
 .quickinvest_input input {
-  padding: 10px;
+  padding: 7px 10px;
   border: none;
   outline: none;
   border-radius: 20px;
@@ -499,7 +508,7 @@
           align-items: baseline;
   color: #255380;
   font-size: 1.5rem;
-  margin: 15px 0;
+  margin: 0px 0 !important;
   gap: 6px;
 }
 
@@ -573,11 +582,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 270px;
+  height: 250px;
   width: 20px;
   background: #e6e6e6;
   margin-top: 35px;
-  margin-right: 10px;
+  margin-right: 3px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -597,7 +606,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 270px;
+  height: 250px;
   width: 20px;
   background: #e6e6e6;
   margin-top: 35px;
@@ -607,7 +616,7 @@
 
 .marketslide {
   height: 250px;
-  width: 150px;
+  width: 180px;
   border: 1px solid #e6e6e6;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -654,7 +663,7 @@
 }
 
 .marketdetails_lower .details {
-  height: 175px;
+  height: 220px;
   width: 45vw;
   border-radius: 18px;
   background: #4d4d4d;
@@ -677,8 +686,8 @@
 }
 
 .marketdetails_lower .add_to_cart {
-  height: 164px;
-  width: 14vw;
+  height: 220px;
+  width: 18vw;
   border-radius: 18px;
   background: #255380;
   color: white;
@@ -757,14 +766,17 @@
 }
 
 .marketdetails_lower .add_to_cart .add {
-  padding: 8px 40px;
+  padding: 6px 40px;
   border-radius: 20px;
   border: none;
   background: #66ffcc;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .marketdetails_lower .add_to_cart .remove {
-  padding: 8px 30px;
+  padding: 6px 30px;
   border-radius: 20px;
   border: none;
   background: white;
@@ -802,26 +814,34 @@
 }
 
 .loans {
-  padding-left: 50px;
+  padding-left: 100px;
+  padding-right: 50px;
+  width: 100%;
 }
 
 .loans_firstsection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 50px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 100px;
 }
 
-.loans_firstsection h2 {
+.loans_firstsection .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 100px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: 80px;
+}
+
+.loans_firstsection .inner h1 {
   font-weight: normal;
   color: #255380;
+  font-size: 1.5rem;
 }
 
-.loans_firstsection .tabs {
+.loans_firstsection .inner .tabs {
   background: #255380;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -833,20 +853,95 @@
   border-radius: 25px;
 }
 
-.loans_firstsection .tabs span {
+.loans_firstsection .inner .tabs span {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 8px 20px;
+  padding: 7px 20px;
   color: white;
   border-radius: 25px;
   font-size: 0.9rem;
   cursor: pointer;
 }
 
-.loans_firstsection .tabs span.active {
+.loans_firstsection .inner .tabs span.active {
   background: #66ffcc;
   color: #255380;
+}
+
+.loans_firstsection .navicons {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  justify-self: flex-start;
+}
+
+.loans_lower {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.loans_lower .left {
+  -webkit-box-flex: 0.4;
+      -ms-flex: 0.4;
+          flex: 0.4;
+  padding-right: 70px;
+  margin-top: 4rem;
+}
+
+.loans_lower .left .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
+  margin-top: 70px;
+}
+
+.loans_lower .left .bottom .addC {
+  padding: 7px 23px;
+  background: #255380;
+  color: #66ffcc;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.loans_lower .left .bottom .request {
+  padding: 7px 23px;
+  background: #999999;
+  color: #cccccc;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.loans_lower .right {
+  -webkit-box-flex: 0.6;
+      -ms-flex: 0.6;
+          flex: 0.6;
+  border: 1px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 * {

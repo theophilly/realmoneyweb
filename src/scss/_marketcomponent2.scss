@@ -1,9 +1,9 @@
 .marketcomponent2 {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: white;
   background: #255380;
-  width: 130px;
-  padding: 10px 10px;
+  width: 160px !important;
+  padding: 10px 10px !important;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
@@ -16,6 +16,7 @@
 
     > p:first-child {
       font-size: 1.8rem;
+      margin: 0px;
     }
   }
   > p:last-child {

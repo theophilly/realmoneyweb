@@ -17,7 +17,7 @@
     margin-top: 30px;
 
     .details {
-      height: 175px;
+      height: 220px;
       width: 45vw;
       border-radius: 18px;
       background: #4d4d4d;
@@ -37,14 +37,13 @@
       }
     }
     .add_to_cart {
-      height: 164px;
-      width: 14vw;
+      height: 220px;
+      width: 18vw;
       border-radius: 18px;
       background: #255380;
       color: white;
       position: relative;
       padding: 20px;
-      //font-weight: 600;
       font-family: 'Mulish', sans-serif;
 
       .upper {
@@ -101,13 +100,14 @@
       }
 
       .add {
-        padding: 8px 40px;
+        padding: 6px 40px;
         border-radius: 20px;
         border: none;
         background: #66ffcc;
+        width: max-content;
       }
       .remove {
-        padding: 8px 30px;
+        padding: 6px 30px;
         border-radius: 20px;
         border: none;
         background: white;
