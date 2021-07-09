@@ -53,7 +53,6 @@
   }
   &_lower {
     display: flex;
-    display: none;
 
     .left {
       flex: 0.4;
@@ -163,6 +162,24 @@
           }
         }
       }
+    }
+  }
+
+  &_give {
+    //border: 1px solid red;
+    padding-top: 30px;
+    width: 100%;
+
+    > p {
+      color: #255380;
+      font-size: 0.9rem;
+    }
+    > div {
+      width: 60%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
     }
   }
 }

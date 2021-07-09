@@ -1,19 +1,19 @@
 import React from 'react';
 import Label from './Label';
 
-export default function LoanComponent() {
+export default function LoanComponent({ amount, duration, cv, sub }) {
   return (
     <div className="loancomponent">
       <div>
-        <Label sub="Amount" title="N10,000" />
+        <Label sub="Amount" title={amount} />
         <div>
-          <Label sub="Duration" title="2 Months" />
+          <Label sub="Duration" title={duration} />
         </div>
       </div>
       <div>
         <div>
-          <Label sub="Collateral Value" title="N20,000" />
-          <p className="plus">+N10,000</p>
+          <Label sub="Collateral Value" title={cv} />
+          <p className="plus">+N{sub}</p>
         </div>
         <button>Accept</button>
       </div>
