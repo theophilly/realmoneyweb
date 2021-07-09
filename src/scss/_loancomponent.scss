@@ -1,0 +1,36 @@
+.loancomponent {
+  box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
+  -webkit-box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
+  width: 300px;
+  height: 150px;
+  border-radius: 20px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  :nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+  }
+  :nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    div {
+      display: flex;
+      flex-direction: column;
+      .plus {
+        font-size: 0.7rem;
+        color: #999999;
+      }
+    }
+    button {
+      background: #66ffcc;
+      font-size: 0.9rem;
+      padding: 7px 35px;
+      border-radius: 25px;
+    }
+  }
+}

@@ -21,9 +21,18 @@ import {
   Text,
 } from '@chakra-ui/react';
 import NavbarIcons from '../components/NavbarIcons';
+import Notselected from '../icons/Notselected';
+import Selected from '../icons/Selected';
+import Label from '../components/Label';
+import LoanComponent from '../components/LoanComponent';
 
 export default function Loans() {
   const [active, setActive] = useState('request');
+  const [one, setOne] = useState(0);
+  const [two, setTwo] = useState(0);
+  const [three, setThree] = useState(0);
+  const [four, setFour] = useState(0);
+  const [showCollateral, setShowCollateral] = useState(false);
 
   const selectData = [
     { key: 'Months', value: null },
@@ -41,12 +50,37 @@ export default function Loans() {
     { key: 'December', value: 12 },
   ];
 
+  //data for select plan
   const planData = [
     { key: 'Pick a Plan', value: null },
     { key: 'Plan A', value: 1 },
     { key: 'Plan B', value: 2 },
     { key: 'Plan C', value: 3 },
   ];
+
+  //Increment
+  const Increment = ({ value, onclick }) => {
+    const controlCartItem = (action) => {
+      if (action === 'INC') {
+        onclick(value + 1);
+      } else if (action === 'DEC') {
+        if (value !== 0) {
+          onclick(value - 1);
+        }
+      }
+    };
+    return (
+      <div className="increment">
+        <div>
+          <span onClick={() => controlCartItem('DEC')}> &#8722;</span>
+          <span>{value}</span>
+          <span onClick={() => controlCartItem('INC')}>&#43;</span>
+        </div>
+        {/* <span style={{ color: '#B3B3B3' }}>Units</span> */}
+      </div>
+    );
+  };
+
   return (
     <div className="loans">
       {/* first section */}
@@ -123,6 +157,7 @@ export default function Loans() {
               //     position: 'top',
               //   });
               // }
+              setShowCollateral(true);
             }}
           >
             {(formik) => {
@@ -225,14 +260,23 @@ export default function Loans() {
                     )}
                   </Field>
                   <div className="bottom">
-                    <span className="addC">Add Collateral(s)</span>
+                    <button className="addC">Add Collateral(s)</button>
                     <div className="inner">
-                      <button disabled className="request">
+                      <button
+                        disabled
+                        className={
+                          one + two + three + four >= 1
+                            ? 'request active'
+                            : 'request'
+                        }
+                      >
                         Request
                       </button>
-                      <Text mt="8px" color="#999999" fontSize="0.9rem">
-                        *Please add collaterals
-                      </Text>
+                      {one + two + three + four < 1 && (
+                        <Text mt="8px" color="#999999" fontSize="0.9rem">
+                          *Please add collaterals
+                        </Text>
+                      )}
                     </div>
                   </div>
                 </Form>
@@ -242,8 +286,37 @@ export default function Loans() {
         </div>
 
         {/* right */}
-        <div className="right"></div>
+        <div className="right">
+          {showCollateral && (
+            <div className="collateral">
+              <p>You are requesting a loan for the sum of</p>
+              <div>
+                <span>N</span> 15,000
+              </div>
+              <p>
+                Please select collaterals that sum up to at least the value of
+                the loan being requested
+              </p>
+              {/* increment */}
+              <Increment onclick={setOne} value={one} />
+              <Increment onclick={setTwo} value={two} />
+              <Increment onclick={setThree} value={three} />
+              <Increment onclick={setFour} value={four} />
+              {one + two + three + four >= 1 ? (
+                <div style={{ marginTop: '20px' }}>
+                  <Selected height={40} width={40} />
+                </div>
+              ) : (
+                <div style={{ marginTop: '20px' }}>
+                  <Notselected height={40} width={40} />
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
+
+      <LoanComponent />
     </div>
   );
 }
