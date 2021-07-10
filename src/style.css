@@ -1054,6 +1054,99 @@
   margin-top: 30px;
 }
 
+.loanmodal > p {
+  color: #255380;
+  font-size: 0.9rem;
+  margin: -5px 25px 15px;
+}
+
+.loanmodal .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 250px;
+  height: 150px;
+  border-radius: 20px;
+  background: #f0f0f0;
+  padding: 10px;
+}
+
+.loanmodal .details :nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.loanmodal .details :nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.loanmodal .view {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 15px;
+  background: #f0f0f0;
+  width: 250px;
+  height: 55px;
+  margin-top: 20px;
+  border-radius: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loanmodal .view div {
+  line-height: 1rem;
+}
+
+.loanmodal .view div p:nth-child(1) {
+  font-size: 0.8rem;
+  color: #255380;
+}
+
+.loanmodal .view div p:nth-child(2) {
+  font-size: 0.7rem;
+}
+
+.loanmodal .view button {
+  background-color: #66ffcc;
+  color: #255380;
+  padding: 5px 30px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.loanmodal > button {
+  background-color: #66ffcc;
+  color: #255380;
+  font-size: 0.8rem;
+  padding: 7px 0;
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
 .label {
   line-height: 1.3rem;
   width: -webkit-fit-content;
@@ -1069,11 +1162,11 @@
 }
 
 .label :nth-child(1) {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .label :nth-child(2) {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #255380;
 }
 
@@ -1081,7 +1174,7 @@
   box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
   -webkit-box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
   -moz-box-shadow: 6px 14px 26px 1px rgba(0, 0, 0, 0.44);
-  width: 300px;
+  width: 280px;
   height: 150px;
   border-radius: 20px;
   padding: 12px;

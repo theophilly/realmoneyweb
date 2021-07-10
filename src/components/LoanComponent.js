@@ -1,7 +1,7 @@
 import React from 'react';
 import Label from './Label';
 
-export default function LoanComponent({ amount, duration, cv, sub }) {
+export default function LoanComponent({ amount, duration, cv, sub, onclick }) {
   return (
     <div className="loancomponent">
       <div>
@@ -15,7 +15,7 @@ export default function LoanComponent({ amount, duration, cv, sub }) {
           <Label sub="Collateral Value" title={cv} />
           <p className="plus">+N{sub}</p>
         </div>
-        <button>Accept</button>
+        <button onClick={() => onclick()}>Accept</button>
       </div>
     </div>
   );

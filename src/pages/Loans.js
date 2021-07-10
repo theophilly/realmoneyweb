@@ -27,6 +27,7 @@ import Notselected from '../icons/Notselected';
 import Selected from '../icons/Selected';
 import LoanComponent from '../components/LoanComponent';
 import loanData from '../loanData';
+import Label from '../components/Label';
 
 export default function Loans() {
   const [active, setActive] = useState('request');
@@ -34,9 +35,13 @@ export default function Loans() {
   const [two, setTwo] = useState(0);
   const [three, setThree] = useState(0);
   const [four, setFour] = useState(0);
+  const [loanDetails, setLoanDetails] = useState({
+    amount: '10,000',
+    duration: '2 Months',
+    cv: '20,000',
+    sub: '10,000',
+  });
   const [showCollateral, setShowCollateral] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const finalRef = useRef();
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   const customStyles = {
@@ -47,6 +52,9 @@ export default function Loans() {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
+      borderRadius: '15px',
+      boxShadow: '6px 14px 26px 1px rgba(0, 0, 0, 0.44)',
+      border: 'none',
     },
   };
   let subtitle;
@@ -57,11 +65,16 @@ export default function Loans() {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
+    // subtitle.style.color = '#f00';
   }
 
   function closeModal() {
     setIsOpen(false);
+  }
+
+  function showLoanModal(item) {
+    setLoanDetails({ ...item });
+    openModal();
   }
 
   const selectData = [
@@ -117,7 +130,7 @@ export default function Loans() {
         {/* first section */}
         <div className="loans_firstsection">
           <div className="inner">
-            <h1 onClick={openModal}>Loans</h1>
+            <h1>Loans</h1>
             <div className="tabs">
               <span
                 onClick={() => setActive('request')}
@@ -358,7 +371,7 @@ export default function Loans() {
 
             <div>
               {loanData.map((item) => (
-                <LoanComponent {...item} />
+                <LoanComponent onclick={() => showLoanModal(item)} {...item} />
               ))}
             </div>
           </div>
@@ -371,16 +384,29 @@ export default function Loans() {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button> */}
+        <div className="loanmodal">
+          <p>Loan details</p>
+          <div className="details">
+            <div>
+              <Label title={loanDetails.amount} sub="Amount Requested" />
+              <Label title={loanDetails.duration} sub="Loan Duration" />
+            </div>
+            <div>
+              <Label title="N10,000" sub="Amount to Pay" />
+              <Label title={loanDetails.duration} sub="Due Date" />
+            </div>
+          </div>
+          <div className="view">
+            <div>
+              <p>collateral</p>
+              <p>(N{loanDetails.cv})</p>
+            </div>
+            <button>view</button>
+          </div>
+          <button>Make Payment</button>
+        </div>
       </Modal>
     </>
   );

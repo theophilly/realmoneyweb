@@ -183,3 +183,67 @@
     }
   }
 }
+.loanmodal {
+  > p {
+    color: #255380;
+    font-size: 0.9rem;
+    margin: -5px 25px 15px;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    background: #f0f0f0;
+    padding: 10px;
+    :nth-child(1) {
+      display: flex;
+      justify-content: space-between;
+    }
+    :nth-child(2) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .view {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: #f0f0f0;
+    width: 250px;
+    height: 55px;
+    margin-top: 20px;
+    border-radius: 30px;
+    align-items: center;
+
+    div {
+      line-height: 1rem;
+      p:nth-child(1) {
+        font-size: 0.8rem;
+        color: #255380;
+      }
+      p:nth-child(2) {
+        font-size: 0.7rem;
+      }
+    }
+    button {
+      background-color: #66ffcc;
+      color: #255380;
+      padding: 5px 30px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      height: max-content;
+    }
+  }
+  > button {
+    background-color: #66ffcc;
+    color: #255380;
+    font-size: 0.8rem;
+    padding: 7px 0;
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 20px;
+  }
+}
