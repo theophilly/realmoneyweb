@@ -10,21 +10,21 @@ import {
   Select,
   Lorem,
   Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
+  // Modal,
+  // ModalOverlay,
+  // ModalContent,
+  // ModalHeader,
+  // ModalFooter,
+  // ModalBody,
   ModalCloseButton,
   FormErrorMessage,
   useToast,
   Text,
 } from '@chakra-ui/react';
+import Modal from 'react-modal';
 import NavbarIcons from '../components/NavbarIcons';
 import Notselected from '../icons/Notselected';
 import Selected from '../icons/Selected';
-import Label from '../components/Label';
 import LoanComponent from '../components/LoanComponent';
 import loanData from '../loanData';
 
@@ -37,6 +37,32 @@ export default function Loans() {
   const [showCollateral, setShowCollateral] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = useRef();
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+  let subtitle;
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const selectData = [
     { key: 'Months', value: null },
@@ -86,272 +112,276 @@ export default function Loans() {
   };
 
   return (
-    <div className="loans">
-      {/* first section */}
-      <div className="loans_firstsection">
-        <div className="inner">
-          <h1 onClick={onOpen}>Loans</h1>
-          <div className="tabs">
-            <span
-              onClick={() => setActive('request')}
-              className={active === 'request' && 'active'}
-            >
-              Request Loan
-            </span>
-            <span
-              onClick={() => setActive('give')}
-              className={active === 'give' && 'active'}
-            >
-              Give Loan
-            </span>
-            <span
-              onClick={() => setActive('current')}
-              className={active === 'current' && 'active'}
-            >
-              Current Loan
-            </span>
+    <>
+      <div className="loans">
+        {/* first section */}
+        <div className="loans_firstsection">
+          <div className="inner">
+            <h1 onClick={openModal}>Loans</h1>
+            <div className="tabs">
+              <span
+                onClick={() => setActive('request')}
+                className={active === 'request' && 'active'}
+              >
+                Request Loan
+              </span>
+              <span
+                onClick={() => setActive('give')}
+                className={active === 'give' && 'active'}
+              >
+                Give Loan
+              </span>
+              <span
+                onClick={() => setActive('current')}
+                className={active === 'current' && 'active'}
+              >
+                Current Loan
+              </span>
+            </div>
+          </div>
+          <div className="navicons">
+            <NavbarIcons />
           </div>
         </div>
-        <div className="navicons">
-          <NavbarIcons />
-        </div>
-      </div>
-      {/* lower section */}
-      {active === 'request' && (
-        <div className="loans_lower">
-          {/* left */}
-          <div className="left">
-            <Formik
-              initialValues={{
-                amount: '',
-                month: '',
-                plan: '',
-              }}
-              validationSchema={Yup.object({
-                amount: Yup.number()
-                  .typeError('amount must be a number')
-                  .required('amount is required')
-                  .positive('amount can only be positive')
-                  .integer('amount can only be an integer'),
-                // amount: Yup.string()
-                //   .max(40, 'Must be 40 characters or less 😱')
-                //   .required('Title is Required'),
-                month: Yup.mixed()
-                  .required('pick a month')
-                  .test('months', 'pick a month', (value) => !isNaN(value)),
-                plan: Yup.mixed()
-                  .required('plan is required')
-                  .test('plan', 'plan is required', (value) => !isNaN(value)),
-              })}
-              onSubmit={async (values, actions) => {
-                // try {
-                //   await dispatch(
-                //     createAdvice({ ...values, userName: state.user.userName })
-                //   );
-                //   actions.setSubmitting(false);
-                //   onClose();
-                // } catch (error) {
-                //   actions.setSubmitting(false);
-                //   onClose();
-                //   toast({
-                //     title: 'Check',
-                //     description: 'session expired, login again',
-                //     status: 'error',
-                //     duration: 4000,
-                //     isClosable: true,
-                //     position: 'top',
-                //   });
-                // }
-                setShowCollateral(true);
-              }}
-            >
-              {(formik) => {
-                return (
-                  <Form>
-                    <Field>
-                      {(props) => (
-                        <FormControl
-                          isInvalid={
-                            props.form.errors.amount &&
-                            props.form.touched.amount
-                          }
-                        >
-                          <Text
-                            mb="8px"
-                            ml="4px"
-                            color="#255380"
-                            fontSize="0.9rem"
+        {/* lower section */}
+        {active === 'request' && (
+          <div className="loans_lower">
+            {/* left */}
+            <div className="left">
+              <Formik
+                initialValues={{
+                  amount: '',
+                  month: '',
+                  plan: '',
+                }}
+                validationSchema={Yup.object({
+                  amount: Yup.number()
+                    .typeError('amount must be a number')
+                    .required('amount is required')
+                    .positive('amount can only be positive')
+                    .integer('amount can only be an integer'),
+                  // amount: Yup.string()
+                  //   .max(40, 'Must be 40 characters or less 😱')
+                  //   .required('Title is Required'),
+                  month: Yup.mixed()
+                    .required('pick a month')
+                    .test('months', 'pick a month', (value) => !isNaN(value)),
+                  plan: Yup.mixed()
+                    .required('plan is required')
+                    .test('plan', 'plan is required', (value) => !isNaN(value)),
+                })}
+                onSubmit={async (values, actions) => {
+                  // try {
+                  //   await dispatch(
+                  //     createAdvice({ ...values, userName: state.user.userName })
+                  //   );
+                  //   actions.setSubmitting(false);
+                  //   onClose();
+                  // } catch (error) {
+                  //   actions.setSubmitting(false);
+                  //   onClose();
+                  //   toast({
+                  //     title: 'Check',
+                  //     description: 'session expired, login again',
+                  //     status: 'error',
+                  //     duration: 4000,
+                  //     isClosable: true,
+                  //     position: 'top',
+                  //   });
+                  // }
+                  setShowCollateral(true);
+                }}
+              >
+                {(formik) => {
+                  return (
+                    <Form>
+                      <Field>
+                        {(props) => (
+                          <FormControl
+                            isInvalid={
+                              props.form.errors.amount &&
+                              props.form.touched.amount
+                            }
                           >
-                            Amount
-                          </Text>
-                          <Input
-                            {...formik.getFieldProps('amount')}
-                            name="amount"
-                            id="amount"
-                          />
-                          <FormErrorMessage mb="10px">
-                            {props.form.errors.amount}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-                    <Field>
-                      {(props) => (
-                        <FormControl
-                          isInvalid={
-                            props.form.errors.month && props.form.touched.month
-                          }
-                          mt={4}
-                        >
-                          <Text
-                            mb="8px"
-                            ml="4px"
-                            color="#255380"
-                            fontSize="0.9rem"
-                          >
-                            Duration
-                          </Text>
-                          <Select
-                            {...formik.getFieldProps('month')}
-                            name="month"
-                            id="catagory"
-                            fontSize="0.9rem"
-                          >
-                            {selectData.map((item) => (
-                              <option key={item.key} value={item.value}>
-                                {item.key}
-                              </option>
-                            ))}
-                          </Select>
-                          <FormErrorMessage mb="25px">
-                            {props.form.errors.month}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-
-                    <Field>
-                      {(props) => (
-                        <FormControl
-                          isInvalid={
-                            props.form.errors.plan && props.form.touched.plan
-                          }
-                          mt={4}
-                        >
-                          <Text
-                            mb="8px"
-                            ml="4px"
-                            color="#255380"
-                            fontSize="0.9rem"
-                          >
-                            Payment Plan
-                          </Text>
-                          <Select
-                            {...formik.getFieldProps('plan')}
-                            name="plan"
-                            id="catagory"
-                            mb="6px"
-                            fontSize="0.9rem"
-                          >
-                            {planData.map((item) => (
-                              <option key={item.key} value={item.value}>
-                                {item.key}
-                              </option>
-                            ))}
-                          </Select>
-                          <FormErrorMessage>
-                            {props.form.errors.plan}
-                          </FormErrorMessage>
-                        </FormControl>
-                      )}
-                    </Field>
-                    <div className="bottom">
-                      <button className="addC">Add Collateral(s)</button>
-                      <div className="inner">
-                        <button
-                          disabled
-                          className={
-                            one + two + three + four >= 1
-                              ? 'request active'
-                              : 'request'
-                          }
-                        >
-                          Request
-                        </button>
-                        {one + two + three + four < 1 && (
-                          <Text mt="8px" color="#999999" fontSize="0.9rem">
-                            *Please add collaterals
-                          </Text>
+                            <Text
+                              mb="8px"
+                              ml="4px"
+                              color="#255380"
+                              fontSize="0.9rem"
+                            >
+                              Amount
+                            </Text>
+                            <Input
+                              {...formik.getFieldProps('amount')}
+                              name="amount"
+                              id="amount"
+                            />
+                            <FormErrorMessage mb="10px">
+                              {props.form.errors.amount}
+                            </FormErrorMessage>
+                          </FormControl>
                         )}
+                      </Field>
+                      <Field>
+                        {(props) => (
+                          <FormControl
+                            isInvalid={
+                              props.form.errors.month &&
+                              props.form.touched.month
+                            }
+                            mt={4}
+                          >
+                            <Text
+                              mb="8px"
+                              ml="4px"
+                              color="#255380"
+                              fontSize="0.9rem"
+                            >
+                              Duration
+                            </Text>
+                            <Select
+                              {...formik.getFieldProps('month')}
+                              name="month"
+                              id="catagory"
+                              fontSize="0.9rem"
+                            >
+                              {selectData.map((item) => (
+                                <option key={item.key} value={item.value}>
+                                  {item.key}
+                                </option>
+                              ))}
+                            </Select>
+                            <FormErrorMessage mb="25px">
+                              {props.form.errors.month}
+                            </FormErrorMessage>
+                          </FormControl>
+                        )}
+                      </Field>
+
+                      <Field>
+                        {(props) => (
+                          <FormControl
+                            isInvalid={
+                              props.form.errors.plan && props.form.touched.plan
+                            }
+                            mt={4}
+                          >
+                            <Text
+                              mb="8px"
+                              ml="4px"
+                              color="#255380"
+                              fontSize="0.9rem"
+                            >
+                              Payment Plan
+                            </Text>
+                            <Select
+                              {...formik.getFieldProps('plan')}
+                              name="plan"
+                              id="catagory"
+                              mb="6px"
+                              fontSize="0.9rem"
+                            >
+                              {planData.map((item) => (
+                                <option key={item.key} value={item.value}>
+                                  {item.key}
+                                </option>
+                              ))}
+                            </Select>
+                            <FormErrorMessage>
+                              {props.form.errors.plan}
+                            </FormErrorMessage>
+                          </FormControl>
+                        )}
+                      </Field>
+                      <div className="bottom">
+                        <button className="addC">Add Collateral(s)</button>
+                        <div className="inner">
+                          <button
+                            disabled
+                            className={
+                              one + two + three + four >= 1
+                                ? 'request active'
+                                : 'request'
+                            }
+                          >
+                            Request
+                          </button>
+                          {one + two + three + four < 1 && (
+                            <Text mt="8px" color="#999999" fontSize="0.9rem">
+                              *Please add collaterals
+                            </Text>
+                          )}
+                        </div>
                       </div>
+                    </Form>
+                  );
+                }}
+              </Formik>
+            </div>
+
+            {/* right */}
+            <div className="right">
+              {showCollateral && (
+                <div className="collateral">
+                  <p>You are requesting a loan for the sum of</p>
+                  <div>
+                    <span>N</span> 15,000
+                  </div>
+                  <p>
+                    Please select collaterals that sum up to at least the value
+                    of the loan being requested
+                  </p>
+                  {/* increment */}
+                  <Increment onclick={setOne} value={one} />
+                  <Increment onclick={setTwo} value={two} />
+                  <Increment onclick={setThree} value={three} />
+                  <Increment onclick={setFour} value={four} />
+                  {one + two + three + four >= 1 ? (
+                    <div style={{ marginTop: '20px' }}>
+                      <Selected height={40} width={40} />
                     </div>
-                  </Form>
-                );
-              }}
-            </Formik>
-          </div>
-
-          {/* right */}
-          <div className="right">
-            {showCollateral && (
-              <div className="collateral">
-                <p>You are requesting a loan for the sum of</p>
-                <div>
-                  <span>N</span> 15,000
+                  ) : (
+                    <div style={{ marginTop: '20px' }}>
+                      <Notselected height={40} width={40} />
+                    </div>
+                  )}
                 </div>
-                <p>
-                  Please select collaterals that sum up to at least the value of
-                  the loan being requested
-                </p>
-                {/* increment */}
-                <Increment onclick={setOne} value={one} />
-                <Increment onclick={setTwo} value={two} />
-                <Increment onclick={setThree} value={three} />
-                <Increment onclick={setFour} value={four} />
-                {one + two + three + four >= 1 ? (
-                  <div style={{ marginTop: '20px' }}>
-                    <Selected height={40} width={40} />
-                  </div>
-                ) : (
-                  <div style={{ marginTop: '20px' }}>
-                    <Notselected height={40} width={40} />
-                  </div>
-                )}
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* give loan */}
-      {active === 'give' && (
-        <div className="loans_give">
-          <p>Pending Requests</p>
+        {/* give loan */}
+        {active === 'give' && (
+          <div className="loans_give">
+            <p>Pending Requests</p>
 
-          <div>
-            {loanData.map((item) => (
-              <LoanComponent {...item} />
-            ))}
+            <div>
+              {loanData.map((item) => (
+                <LoanComponent {...item} />
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-      <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Lorem count={2} />
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
+        )}
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
       </Modal>
-    </div>
+    </>
   );
 }
